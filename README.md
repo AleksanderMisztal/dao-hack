@@ -1,6 +1,6 @@
 # Dao hack repo
 
-> Deployed [here](insert frontend url) (work in progress).
+> Deployed [here](https://dao-hack.vercel.app) (work in progress).
 
 Folder structure is self explanatory.
 
