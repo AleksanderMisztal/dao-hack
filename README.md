@@ -12,3 +12,11 @@ All files named with `.page.js` under `frontend/pages` will be treated as pages.
 All files named with `.api.js` under `frontend/pages/api` will be treated as stateless api endpoints (like aws lambda).
 
 Remember to `npm install`.
+
+### TODOs
+
+- Connect wallet
+- Create lens profile
+- Chooses one of the publishing permissions logic modules we’ve implemented (or address of their custom one)
+- Create post proposals
+- Approve post proposals if necessary
