@@ -26,7 +26,7 @@ contract ProfileHolder {
     uint256 public profileId; //lens protocol does not mint NFTs with 0, it's used to signify an uninitialized variable.
     string public handle;
 
-    string memeRequestPostURI;
+    string RequestPostURI;
     string chosenMemeURI;
     uint256 lastPostTime;
     uint256 postCooldown;
@@ -84,10 +84,11 @@ contract ProfileHolder {
             )
         );
         profileId = lensHub.getProfileIdByHandle(handle);
-        _postPrivateMemeRequest();
+        _postPrivatePostRequest();
     }
 
-    function _setMeme() private onlyOnceCreated {
+    //This need to be modify for our project, since it was in the memeDAO project
+    function _setPost() private onlyOnceCreated {
         ReactionsModule reactionsModule = ReactionsModule(referenceModuleAddress);
         uint256 pubId = lensHub.getPubCount(profileId);
         uint256 nRef = reactionsModule.getNumberOfReferences(profileId, pubId);
@@ -117,7 +118,7 @@ contract ProfileHolder {
         }
     }
 
-    function _postMeme() private onlyOnceCreated {
+    function _postPost() private onlyOnceCreated {
         lensHub.post(
             DataTypes.PostData(
                 profileId,
@@ -131,11 +132,11 @@ contract ProfileHolder {
         lastPostTime = block.timestamp;
     }
 
-    function _postPrivateMemeRequest() private onlyOnceCreated {
+    function _postPrivatePostRequest() private onlyOnceCreated {
         lensHub.post(
             DataTypes.PostData(
                 profileId,
-                memeRequestPostURI,
+                RequestPostURI,
                 emptyCollectModuleAddress, // emptyCollectModule, TODO
                 '', // collectModuleData,
                 referenceModuleAddress,
@@ -144,8 +145,8 @@ contract ProfileHolder {
         );
     }
 
-    function setMemeRequestPostURI(string memory _newURI) public onlyOwner {
-        memeRequestPostURI = _newURI;
+    function setRequestPostURI(string memory _newURI) public onlyOwner {
+        RequestPostURI = _newURI;
     }
 
     // Chainlink Upkeep
@@ -163,11 +164,11 @@ contract ProfileHolder {
         if (pubId != 0) {
             AuctionCollectModule(auctionCollectModuleAddress).closeAuction(profileId, pubId);
         }
-        _setMeme();
+        _setPost();
         if (keccak256(abi.encode(chosenMemeURI)) != keccak256(abi.encode(''))) {
-            _postMeme(); // We're not posting empty publications
+            _postPost(); // We're not posting empty publications
         }
-        _postPrivateMemeRequest();
+        _postPrivatePostRequest();
     }
 
     // Setting addresses for modules
