@@ -1,5 +1,13 @@
 import Link from 'next/link';
 
+const NavItem = ({ href, name }) => (
+  <Link href={href}>
+    <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-blue-600 hover:text-white">
+      {name}
+    </a>
+  </Link>
+);
+
 export const Navbar = () => {
   return (
     <>
@@ -11,11 +19,9 @@ export const Navbar = () => {
             </span>
           </a>
         </Link>
-        <Link href="/create-profile">
-          <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-blue-600 hover:text-white">
-            Create Profile
-          </a>
-        </Link>
+        <NavItem href="/create-profile" name="Create Profile" />
+        <NavItem href="/proposals" name="Proposals" />
+        <NavItem href="/follow" name="Follow DAOs" />
       </nav>
     </>
   );
