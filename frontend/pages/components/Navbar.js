@@ -7,15 +7,15 @@ export const Navbar = () => {
         <Link href="/">
           <a className="inline-flex items-center p-2 mr-4 ">
             <span className="text-xl text-white font-bold uppercase tracking-wide">
-              Dao hack
+              NEWS DAO
             </span>
           </a>
         </Link>
-        {/* <Link href="/">
+        <Link href="/create-profile">
           <a className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-blue-600 hover:text-white">
-            Coins
+            Create Profile
           </a>
-        </Link> */}
+        </Link>
       </nav>
     </>
   );

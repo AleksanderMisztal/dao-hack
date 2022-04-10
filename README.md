@@ -15,8 +15,13 @@ Remember to `npm install`.
 
 ### TODOs
 
-- Connect wallet
-- Create lens profile
-- Chooses one of the publishing permissions logic modules we’ve implemented (or address of their custom one)
+- Create lens profile for the proxy
 - Create post proposals
-- Approve post proposals if necessary
+- Approve post proposals
+
+### Pages
+
+- Landing page
+- Choose modules / create dao page
+- Post proposals page (one per dao)
+- Screen per permissions module?
