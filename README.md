@@ -1,4 +1,4 @@
-# Dao hack repo
+# Dao hack ethglobal - Fakenews DAO
 
 > Deployed [here](https://dao-hack.vercel.app) (work in progress).
 
@@ -16,8 +16,9 @@ Remember to `npm install`.
 ### TODOs
 
 - Create lens profile for the proxy
-- Create post proposals
-- Approve post proposals
+- Create post proposals - Done
+- Approve post proposals - Done
+- Voting - Done
 
 ### Pages
 
