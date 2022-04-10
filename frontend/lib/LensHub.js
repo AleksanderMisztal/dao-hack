@@ -1,4 +1,4 @@
-export default {
+export default Abi = {
   _format: 'hh-sol-artifact-1',
   contractName: 'LensHub',
   sourceName: 'contracts/core/LensHub.sol',
