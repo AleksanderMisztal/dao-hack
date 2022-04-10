@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { fetchJson } from 'ethers/lib/utils';
 import { ethers } from 'ethers';
 import SignerProvider from '../contexts/SignerContext';
+import Button from './Button';
 
 export default function DeployProxy({ modules, onProxyCreated }) {
   const [selectedModules, setSelectedModules] = React.useState(
@@ -45,12 +46,12 @@ export default function DeployProxy({ modules, onProxyCreated }) {
       <ul>
         {modules.map((module, i) => (
           <li key={i} className="bg-white p-2 rounded-lg my-2 shadow-lg w-80">
-            <button
-              className="bg-green-300 p-1 rounded-sm w-60"
+            <Button
+              className="bg-green-400 hover:bg-green-200"
               onClick={() => deployModule(module.codeJsonName)}
             >
               {module.name}
-            </button>
+            </Button>
             <input
               type="checkbox"
               className="m-2 "
@@ -64,7 +65,7 @@ export default function DeployProxy({ modules, onProxyCreated }) {
           </li>
         ))}
       </ul>
-      <button onClick={deployProfile}>Create profile</button>
+      <Button onClick={deployProfile}>Create profile</Button>
     </div>
   );
 }

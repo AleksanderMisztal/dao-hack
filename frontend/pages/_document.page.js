@@ -7,7 +7,9 @@ export default function Document() {
       <Head />
       <body>
         <Navbar />
-        <Main />
+        <div className="relative">
+          <Main />
+        </div>
         <NextScript />
       </body>
     </Html>

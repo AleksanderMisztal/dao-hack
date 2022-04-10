@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { SignerContext } from '../contexts/SignerContext';
 import { mintProfile } from '../../lib/lensApi';
+import Button from './Button';
 
 export default function CreateProfile({ ownerAddress }) {
   const signer = useContext(SignerContext);
@@ -30,7 +31,7 @@ export default function CreateProfile({ ownerAddress }) {
           }}
         >
           <input type="text" name="username" id="username" />
-          <button type="submit">Create a new lens profile</button>
+          <Button type="submit">Create a new lens profile</Button>
         </form>
       </div>
     );

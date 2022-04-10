@@ -4,7 +4,9 @@ import SignerContext from './contexts/SignerContext';
 function MyApp({ Component, pageProps }) {
   return (
     <SignerContext>
-      <Component {...pageProps} />
+      <div className="container max-w-xl mx-auto mt-6 bg-white rounded-lg shadow-lg p-6">
+        <Component {...pageProps} />
+      </div>
     </SignerContext>
   );
 }

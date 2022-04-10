@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { shortenAddress } from '../../lib/utils';
 import { ethers } from 'ethers';
+import Button from './Button';
 
 export const AddressSelect = ({ onSignerObtained }) => {
   const [address, setAddress] = useState(undefined);
@@ -21,20 +22,19 @@ export const AddressSelect = ({ onSignerObtained }) => {
 
   return (
     <>
-      <button
-        className="absolute right-4 top-0 bg-blue-400 p-3 rounded-lg border-orange-500 border-2"
-        onClick={getSigner}
-      >
+      <Button className="absolute right-4 top-0" onClick={getSigner}>
         {address === undefined ? (
           'Connect wallet'
         ) : (
           <>
             {shortenAddress(address)}
             <br />
-            {'net id: ' + window.ethereum.networkVersion}
+            {window.ethereum.networkVersion === '80001'
+              ? 'Mumbai'
+              : 'Please change to Mumbai'}
           </>
         )}
-      </button>
+      </Button>
     </>
   );
 };
