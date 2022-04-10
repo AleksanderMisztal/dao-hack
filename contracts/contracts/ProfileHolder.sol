@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts v4.4.0 (proxy/transparent/TransparentUpgradeableProxy.sol)
 
 pragma solidity ^0.8.0;
 
-import {DataTypes} from './libraries/DataTypes.sol';
-import {LensHub} from './core/LensHub.sol';
-import {ReactionsModule} from './core/modules/reference/ReactionsModule.sol';
-import {AuctionCollectModule} from './core/modules/collect/AuctionCollectModule.sol';
+import {DataTypes} from '../libraries/DataTypes.sol';
+import {LensHub} from '../core/LensHub.sol';
+import {ReactionsModule} from '../core/modules/reference/ReactionsModule.sol';
+import {AuctionCollectModule} from '../core/modules/collect/AuctionCollectModule.sol';
 import {IERC20} from '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 import {SafeERC20} from '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
