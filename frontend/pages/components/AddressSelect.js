@@ -3,18 +3,20 @@ import { useState } from 'react';
 import { shortenAddress } from '../../lib/utils';
 import { ethers } from 'ethers';
 
-export const AddressSelect = ({ onAddressSelected }) => {
+export const AddressSelect = ({ onSignerObtained }) => {
   const [address, setAddress] = useState(undefined);
-  console.log('address select');
   const getSigner = async () => {
-    console.log('getSigner');
     const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
     await provider.send('eth_requestAccounts', []);
     const signer = provider.getSigner();
     const address = await signer.getAddress();
+    const balance = await signer.getBalance();
+
+    console.log({ balance: ethers.utils.formatEther(balance) });
+    console.log({ address });
+
     setAddress(address);
-    console.log('Account:', address);
-    onAddressSelected(address);
+    onSignerObtained(signer);
   };
 
   return (
@@ -23,7 +25,15 @@ export const AddressSelect = ({ onAddressSelected }) => {
         className="absolute right-4 top-0 bg-blue-400 p-3 rounded-lg border-orange-500 border-2"
         onClick={getSigner}
       >
-        {address === undefined ? 'Connect wallet' : shortenAddress(address)}
+        {address === undefined ? (
+          'Connect wallet'
+        ) : (
+          <>
+            {shortenAddress(address)}
+            <br />
+            {'net id: ' + window.ethereum.networkVersion}
+          </>
+        )}
       </button>
     </>
   );

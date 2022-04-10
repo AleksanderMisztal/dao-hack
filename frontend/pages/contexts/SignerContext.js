@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { AddressSelect } from '../components/AddressSelect';
 
-const _SignerContext = React.createContext(undefined);
+export const SignerContext = React.createContext(undefined);
 
-export default function SignerContext({ children }) {
+export default function SignerProvider({ children }) {
   const [signer, setSigner] = useState(undefined);
   return (
     <div className="relative">
-      <AddressSelect onAddressSelected={setSigner} />
-      <_SignerContext.Provider value={signer}>
-        {children}
-      </_SignerContext.Provider>
+      <AddressSelect onSignerObtained={setSigner} />
+      <SignerContext.Provider value={signer}>{children}</SignerContext.Provider>
     </div>
   );
 }
