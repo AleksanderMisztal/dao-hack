@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import fs from 'fs';
 import DeployProxy from './components/DeployProxy';
 import CreateProfile from './components/CreateProfile';
+
 export const getStaticProps = async () => {
   const modules = fs.readFileSync('./public/modules.json');
   return {
