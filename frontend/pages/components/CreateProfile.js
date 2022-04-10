@@ -30,7 +30,13 @@ export default function CreateProfile({ ownerAddress }) {
             handleCreateProfile(ownerAddress, e.target.username.value);
           }}
         >
-          <input type="text" name="username" id="username" />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            className="p-2 border-blue-600 border-2 rounded-lg mx-2"
+            placeholder="New username..."
+          />
           <Button type="submit">Create a new lens profile</Button>
         </form>
       </div>

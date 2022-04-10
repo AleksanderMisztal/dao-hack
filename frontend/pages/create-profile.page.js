@@ -21,8 +21,12 @@ export default function CreateDAOProfile({ modules }) {
         <DeployProxy modules={modules} onProxyCreated={setProxyAddress} />
       ) : (
         <div className="">
-          <h1 className="text-red-500 capitalize">Proxy created!</h1>
-          <p>Your proxy is now available at {proxyAddress}</p>
+          <p>
+            Your proxy is now available at{' '}
+            <span className="bg-blue-100 p-1">{proxyAddress}</span>
+          </p>
+          You can now create a profile with your proxy address, or transfer the
+          ownership of an existing profile to this address.
           <CreateProfile ownerAddress={proxyAddress} />
         </div>
       )}
