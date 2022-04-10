@@ -1,5 +1,9 @@
 # Dao hack ethglobal - Fakenews DAO
 
+- the specific DAO reporting on topic X (say covid pandemic)
+- ppl can post 'news' according to he permissions above
+- ppl approve / vote on what actually gets published according to the news above
+
 > Deployed [here](https://dao-hack.vercel.app) (work in progress).
 
 Folder structure is self explanatory.
